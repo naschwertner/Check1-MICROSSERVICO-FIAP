@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Produto</title>
+<title>Fornecedor</title>
 </head>
 <head>
 <title>Bootstrap 5 Example</title>
@@ -25,7 +25,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
-					<li class="nav-item"><a class="nav-link" href="paginas">Produto</a></li>
+					<li class="nav-item"><a class="nav-link" href="paginas">Fornecedor</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)">Link</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -56,11 +56,11 @@
 			<th>Telefone</th>
 		</thead>
 		<tbody>
-			<tr th:each="produto : ${produtos}">
-				<td th:text="${produto.getId()}"></td>
-				<td th:text="${produto.getNome()}"></td>
-				<td th:text="${produto.getEndereco()}"></td>
-				<td th:text="${produto.getTelefone()}"></td>
+			<tr th:each="fornecedor : ${fornecedor}">
+				<td th:text="${fornecedor.getId()}"></td>
+				<td th:text="${fornecedor.getNome()}"></td>
+				<td th:text="${fornecedor.getEndereco()}"></td>
+				<td th:text="${fornecedor.getTelefone()}"></td>
 			</tr>
 		</tbody>
 	</table>

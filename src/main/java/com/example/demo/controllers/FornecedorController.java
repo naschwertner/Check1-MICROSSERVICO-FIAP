@@ -15,24 +15,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Categoria;
-import com.example.demo.models.Produto;
-import com.example.demo.repositories.ProdutoRepository;
+import com.example.demo.models.Fornecedor;
+import com.example.demo.repositories.FornecedorRepository;
 
 @Controller
 @RequestMapping("/paginas") // Mapeia a página que estamos rodando
-public class ProdutoController {
+public class FornecedorController {
 	
 	
 	@Autowired
-	private ProdutoRepository produtoRepository;
+	private FornecedorRepository fornecedorRepository;
 
 	@GetMapping("")
 	public ModelAndView get() {
 		ModelAndView model = new ModelAndView("paginas/index");
 				
-		List<Produto> listaProduto = produtoRepository.findAll();
+		List<Fornecedor> listaFornecedor = fornecedorRepository.findAll();
 		
-		model.addObject("produtos", listaProduto);
+		model.addObject("fornecedor", listaFornecedor);
 		return model;
 	}
 	
@@ -45,10 +45,10 @@ public class ProdutoController {
 	}
 	
 	@PostMapping("/create") // Pega os dados inseridos na página para utilizar no método
-	public String create(@ModelAttribute("paginas") Produto objProduto) {
+	public String create(@ModelAttribute("paginas") Fornecedor objFornecedor) {
 	
 		
-		produtoRepository.save(objProduto);
+		fornecedorRepository.save(objFornecedor);
 		
 		return "redirect:/paginas";
 	}
