@@ -26,10 +26,9 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link" href="paginas">Fornecedor</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)"></a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)">Link</a></li>
+					<li class="nav-item"><a class="nav-link" href="categoria">Categoria</a></li>
+					<li class="nav-item"><a class="nav-link" href="/cliente">Cliente</a></li>
+					<li class="nav-item"><a class="nav-link" href="/produto">Produto</a></li>
 				</ul>
 				<form class="d-flex">
 					<div style="float: right;">
@@ -46,7 +45,7 @@
 	</nav>
 
 	<div class="container">
-		<a type="button" class="btn btn-primary mt-2" href="paginas/create">Criar</a>
+		<a type="button" class="btn btn-primary mt-2" href="categoria/create">Criar</a>
 		
 		<table>
 		<thead>
@@ -54,11 +53,10 @@
 			<th>Descrição</th>
 		</thead>
 		<tbody>
-			<tr th:each="fornecedor : ${fornecedor}">
-				<td th:text="${fornecedor.getId()}"></td>
-				<td th:text="${fornecedor.getNome()}"></td>
-				<td th:text="${fornecedor.getEndereco()}"></td>
-				<td th:text="${fornecedor.getTelefone()}"></td>
+			<tr th:each="categoria : ${categoria}">
+				<td th:text="${categoria.getId()}"></td>
+				<td th:text="${categoria.getDescricao()}"></td>
+			
 			</tr>
 		</tbody>
 	</table>

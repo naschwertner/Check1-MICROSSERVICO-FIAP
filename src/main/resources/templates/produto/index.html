@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Hello!</title>
+<title>Produto</title>
+</head>
 <head>
 <title>Bootstrap 5 Example</title>
 <meta charset="utf-8">
@@ -12,7 +13,6 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="navbar-nav me-auto">
-					<li class="nav-item"><a class="nav-link" href="/paginas">Fornecedor</a></li>
+					<li class="nav-item"><a class="nav-link" href="paginas">Fornecedor</a></li>
 					<li class="nav-item"><a class="nav-link" href="/categoria">Categoria</a></li>
 					<li class="nav-item"><a class="nav-link" href="/cliente">Cliente</a></li>
 					<li class="nav-item"><a class="nav-link" href="/produto">Produto</a></li>
@@ -33,7 +33,10 @@
 				<form class="d-flex">
 					<div style="float: right;">
 						<h2>
-							<span th:text="${nome}"></span>
+							<span th:text="${descricao}"></span>
+							<span th:text="${preco}"></span>
+							<span th:text="${fornecedor}"></span>
+							<span th:text="${categoria}"></span>
 						</h2>
 					</div>
 
@@ -42,7 +45,32 @@
 		</div>
 	</nav>
 
+	<div class="container">
+		<a type="button" class="btn btn-primary mt-2" href="produto/create">Criar</a>
+		
+		<table>
+		<thead>
+			<th>Id</th>
+			<th>descrição</th>
+			<th>preco</th>			
+			<th>fornecedor</th>
+			<th>categoria</th>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${produto}">
+				<td th:text="${produto.getId()}"></td>
+				<td th:text="${produto.getDescricao()}"></td>
+				<td th:text="${produto.getPreco()}"></td>
+				<td th:text="${produto.getFornecedor()}"></td>
+				<td th:text="${produto.getCategoria()}"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
 
+
+
+	
 
 </body>
 </html>
