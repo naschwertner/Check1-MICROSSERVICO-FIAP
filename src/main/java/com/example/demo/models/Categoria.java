@@ -1,14 +1,21 @@
 package com.example.demo.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Categoria {
 	
-	private int id;
+	@Id //primary key
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String descricao;
-	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getDescricao() {
@@ -18,5 +25,6 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 	
+
 	
 }

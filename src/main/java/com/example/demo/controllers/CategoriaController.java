@@ -1,5 +1,4 @@
 package com.example.demo.controllers;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import com.example.demo.models.Fornecedor;
-import com.example.demo.repositories.FornecedorRepository;
+import com.example.demo.models.Categoria;
+import com.example.demo.repositories.CategoriaRepository;
 
 @Controller
-@RequestMapping("/paginas") // Mapeia a página que estamos rodando
-public class FornecedorController {
-	
+@RequestMapping("/categoria")
+public class CategoriaController {
 	
 	@Autowired
-	private FornecedorRepository fornecedorRepository;
+	private CategoriaRepository categoriaRepository;
 
 	@GetMapping("")
 	public ModelAndView get() {
-		ModelAndView model = new ModelAndView("paginas/index");
+		ModelAndView model = new ModelAndView("categoria/index");
 				
-		List<Fornecedor> listaFornecedor = fornecedorRepository.findAll();
+		List<Categoria> listaCategoria = categoriaRepository.findAll();
 		
-		model.addObject("fornecedor", listaFornecedor);
+		model.addObject("categoria", listaCategoria);
 		return model;
 	}
 	
@@ -37,19 +35,16 @@ public class FornecedorController {
 	@GetMapping("/create") 
 	public String create() {
 		
-		return "paginas/create";
+		return "categoria/create";
 	}
 	
 	@PostMapping("/create") // Pega os dados inseridos na página para utilizar no método
-	public String create(@ModelAttribute("paginas") Fornecedor objFornecedor) {
+	public String create(@ModelAttribute("categoria") Categoria objCategoria) {
 	
 		
-		fornecedorRepository.save(objFornecedor);
+		categoriaRepository.save(objCategoria);
 		
-		return "redirect:/paginas";
+		return "redirect:/categoria";
 	}
-	
 
-	
-	
 }
